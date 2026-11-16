@@ -1264,7 +1264,6 @@ body.light-theme .planned-service-item p {
    ПОСЛЕДНИЕ СОБЫТИЯ НА ГЛАВНОЙ
    ========================================== */
 
-/* Контейнер списка событий */
 .dashboard-events-list {
     display: flex;
     flex-direction: column;
@@ -1272,12 +1271,11 @@ body.light-theme .planned-service-item p {
     margin-top: 5px;
 }
 
-/* Отдельное событие */
-.dashboard-event {
+/* Карточка события — классы соответствуют script.js */
+.dashboard-event-item {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 15px;
+    gap: 14px;
     padding: 15px 16px;
     background: var(--event-bg);
     border: 1px solid var(--event-border);
@@ -1286,67 +1284,75 @@ body.light-theme .planned-service-item p {
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
 }
 
-.dashboard-event:hover {
+.dashboard-event-item:hover {
     transform: translateX(3px);
 }
 
-/* Левая часть события */
-.dashboard-event-info {
+/* Иконка расхода или обслуживания */
+.dashboard-event-icon {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: var(--event-empty-bg);
+}
+
+.dashboard-event-icon svg {
+    display: block;
+}
+
+/* Информация о событии */
+.dashboard-event-info {
+    flex: 1;
     min-width: 0;
 }
 
-/* Название события */
-.dashboard-event-info strong {
+.dashboard-event-details {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    min-width: 0;
+}
+
+.dashboard-event-details strong {
     color: var(--event-text);
     font-size: 14px;
     font-weight: 600;
     line-height: 1.4;
 }
 
-/* Автомобиль и описание */
-.dashboard-event-info p {
+.dashboard-event-details span {
     color: var(--event-muted);
     font-size: 12px;
-    line-height: 1.5;
-    margin: 0;
+    line-height: 1.4;
+}
+
+.dashboard-event-details small {
+    color: var(--event-muted);
+    font-size: 11px;
+    line-height: 1.4;
     overflow-wrap: anywhere;
 }
 
-/* Дата события */
-.dashboard-event-date {
-    color: var(--event-muted);
-    font-size: 11px;
-    margin-top: 3px;
+.dashboard-event-details .dashboard-event-date {
+    margin-top: 2px;
 }
 
-/* Сумма события */
+/* Сумма */
 .dashboard-event-amount {
     color: var(--event-expense);
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 700;
     white-space: nowrap;
     flex-shrink: 0;
 }
 
-/* Событие обслуживания */
-.dashboard-event.service-event {
-    border-left-color: var(--event-service);
-}
-
-.dashboard-event.service-event .dashboard-event-amount {
-    color: var(--event-service);
-}
-
-/* Событие расхода */
-.dashboard-event.expense-event {
-    border-left-color: var(--event-expense);
-}
-
-/* Сообщение об отсутствии событий */
-.dashboard-events-empty {
+/* Пустая история */
+.dashboard-event-empty {
     padding: 22px 18px;
     background: var(--event-empty-bg);
     border: 1px dashed var(--event-border);
@@ -1357,52 +1363,35 @@ body.light-theme .planned-service-item p {
     text-align: center;
 }
 
-/* Светлая тема: последние события */
-
-body.light-theme .dashboard-event {
-    background: var(--event-bg);
-    border-color: var(--event-border);
-    border-left-color: var(--event-expense);
-}
-
-body.light-theme .dashboard-event.service-event {
-    border-left-color: var(--event-service);
-}
-
-body.light-theme .dashboard-event-info strong {
+.dashboard-event-empty p {
     color: var(--event-text);
+    font-weight: 600;
+    margin-bottom: 5px;
 }
 
-body.light-theme .dashboard-event-info p,
-body.light-theme .dashboard-event-date {
+.dashboard-event-empty span {
     color: var(--event-muted);
 }
 
-body.light-theme .dashboard-event-amount {
-    color: var(--event-expense);
-}
-
-body.light-theme .dashboard-event.service-event .dashboard-event-amount {
-    color: var(--event-service);
-}
-
-body.light-theme .dashboard-events-empty {
-    background: var(--event-empty-bg);
-    border-color: var(--event-border);
-    color: var(--event-muted);
-}
-
-/* Адаптация последних событий для телефона */
+/* Адаптация для небольших экранов */
 @media (max-width: 650px) {
-    .dashboard-event {
-        padding: 13px;
+    .dashboard-event-item {
         gap: 10px;
+        padding: 13px;
     }
 
-    .dashboard-event-info strong {
-        font-size: 13px;
+    .dashboard-event-icon {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
     }
 
+    .dashboard-event-icon svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .dashboard-event-details strong,
     .dashboard-event-amount {
         font-size: 13px;
     }
