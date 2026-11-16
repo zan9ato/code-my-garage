@@ -2300,3 +2300,53 @@ body.vice-city-theme .legend-gac,body.vice-city-theme .chart-bar-gac{background:
 body.vice-city-theme .legend-toyota,body.vice-city-theme .chart-bar-toyota{background:#65e8dc}
 body.vice-city-theme .market-source,body.vice-city-theme .market-source a{color:#b7accd}
 body.vice-city-theme .market-source a:hover{color:#65e8dc}
+
+
+/* Актуальная аналитика рынка — октябрь 2026 */
+.market-update-note {
+    display:flex; align-items:center; gap:10px; margin:0 0 18px;
+    color:var(--mg-muted); font-size:12px;
+}
+.market-live-dot {
+    width:8px; height:8px; border-radius:50%; background:#45c78a;
+    box-shadow:0 0 10px rgba(69,199,138,.45);
+}
+.market-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; margin:0 0 18px; }
+.market-card { display:flex; flex-direction:column; align-items:flex-start; gap:8px; min-width:0; padding:22px; }
+.market-card strong { font-size:clamp(25px,2.5vw,34px); line-height:1.1; font-weight:800; letter-spacing:-.04em; }
+.market-card > span:last-of-type { color:var(--mg-muted); font-size:12px; }
+.market-change { display:inline-flex; margin-top:4px; font-size:12px; font-weight:700; }
+.market-change.positive,.market-change-positive { color:#2dbb83; }
+.market-change.negative,.market-change-negative { color:#e17676; }
+.market-change-neutral { color:var(--mg-muted); }
+.market-ranking-chart { display:flex; flex-direction:column; gap:15px; margin-top:22px; }
+.market-rank-row { display:grid; grid-template-columns:110px minmax(40px,1fr) 82px; align-items:center; gap:14px; }
+.market-rank-label { display:flex; align-items:center; gap:9px; min-width:0; font-size:13px; }
+.market-rank-number { display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; flex:0 0 22px; border-radius:7px; background:var(--mg-accent-soft); color:var(--mg-accent); font-size:11px; font-weight:800; }
+.market-rank-track { height:12px; overflow:hidden; border-radius:20px; background:rgba(128,128,128,.13); }
+.market-rank-bar { height:100%; min-width:3px; border-radius:20px; background:linear-gradient(90deg,#f0a05c,#e87936); }
+.market-rank-bar.is-toyota { background:linear-gradient(90deg,#64c9ba,#368d9a); }
+.market-rank-value { text-align:right; font-size:12px; font-weight:700; font-variant-numeric:tabular-nums; }
+.market-table-card { margin-top:18px; }
+.market-table-wrap { width:100%; overflow-x:auto; }
+.market-data-table { width:100%; border-collapse:collapse; margin-top:18px; font-size:13px; }
+.market-data-table th { padding:11px 12px; color:var(--mg-muted); text-align:left; font-size:11px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; border-bottom:1px solid var(--mg-border); }
+.market-data-table td { padding:13px 12px; border-bottom:1px solid var(--mg-border); font-variant-numeric:tabular-nums; }
+.market-data-table tbody tr:last-child td { border-bottom:0; }
+.market-data-table td:first-child { font-weight:700; }
+.market-data-table td:nth-child(2) { font-weight:650; }
+.market-source { margin-top:18px; line-height:1.7; font-size:11px; }
+.market-source a { text-decoration:underline; text-underline-offset:3px; }
+@media(max-width:760px) {
+    .market-stats { grid-template-columns:1fr; }
+    .market-rank-row { grid-template-columns:88px minmax(35px,1fr) 66px; gap:8px; }
+    .market-rank-label { font-size:12px; gap:6px; }
+    .market-rank-value { font-size:11px; }
+    .market-data-table { font-size:12px; }
+    .market-data-table th,.market-data-table td { padding:10px 8px; }
+}
+body.light-theme .market-rank-track { background:rgba(35,49,66,.09); }
+body.vice-city-theme .market-rank-bar { background:linear-gradient(90deg,#65e8dc,#ff75ad); }
+body.vice-city-theme .market-rank-bar.is-toyota { background:linear-gradient(90deg,#ffb2d1,#65e8dc); }
+body.vice-city-theme .market-data-table th { color:#b7accd; }
+body.vice-city-theme .market-data-table td { border-color:rgba(143,126,230,.18); }
