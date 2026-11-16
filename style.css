@@ -1471,3 +1471,650 @@ body.light-theme #add-car-btn:hover {
     }
 }
 
+
+
+/* ==========================================
+   MY GARAGE — PREMIUM AUTOMOTIVE UI
+   Visual refresh: graphite / warm orange
+   ========================================== */
+
+:root {
+    color-scheme: dark;
+    --mg-bg: #111315;
+    --mg-sidebar: #171a1d;
+    --mg-surface: #1b1f23;
+    --mg-surface-raised: #20252a;
+    --mg-border: rgba(255,255,255,.075);
+    --mg-border-strong: rgba(255,255,255,.13);
+    --mg-text: #f1f3f5;
+    --mg-muted: #929ba5;
+    --mg-accent: #f08a3c;
+    --mg-accent-strong: #ff9b50;
+    --mg-accent-soft: rgba(240,138,60,.12);
+    --mg-shadow: 0 18px 50px rgba(0,0,0,.22);
+}
+
+body {
+    background:
+        radial-gradient(ellipse at 78% -10%, rgba(240,138,60,.075), transparent 34%),
+        var(--mg-bg);
+    color: var(--mg-text);
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    line-height: 1.5;
+    transition: background .25s ease, color .25s ease;
+}
+
+.app {
+    min-height: 100vh;
+    align-items: stretch;
+}
+
+.sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+    width: 258px;
+    min-width: 258px;
+    min-height: 100vh;
+    padding: 34px 18px 24px;
+    background: linear-gradient(180deg, #191d21 0%, #15181b 100%);
+    border-right: 1px solid var(--mg-border);
+    box-shadow: 12px 0 40px rgba(0,0,0,.10);
+}
+
+.sidebar h2 {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    margin: 0 0 48px;
+    padding: 0 12px 23px;
+    color: var(--mg-text);
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 2.5px;
+}
+
+.sidebar h2::before {
+    content: "";
+    width: 9px;
+    height: 25px;
+    border-radius: 4px;
+    background: linear-gradient(180deg, #ffad68, #df6d25);
+    box-shadow: 0 0 18px rgba(240,138,60,.35);
+}
+
+.sidebar h2::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: 0;
+    left: 12px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(240,138,60,.45), var(--mg-border), transparent);
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+nav a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 47px;
+    margin: 0;
+    padding: 12px 14px;
+    border: 1px solid transparent;
+    border-radius: 11px;
+    color: #9da6af;
+    font-size: 14px;
+    font-weight: 550;
+    transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+}
+
+nav a:hover {
+    transform: translateX(2px);
+    background: rgba(255,255,255,.035);
+    color: #f5f6f7;
+}
+
+nav a.active {
+    background: linear-gradient(100deg, rgba(240,138,60,.16), rgba(240,138,60,.055));
+    border-color: rgba(240,138,60,.17);
+    color: #ffad70;
+    box-shadow: inset 3px 0 0 var(--mg-accent), 0 6px 18px rgba(0,0,0,.12);
+}
+
+.content {
+    min-width: 0;
+    padding: 46px clamp(24px, 4vw, 64px);
+}
+
+header,
+.dashboard-header,
+.garage-header {
+    margin-bottom: 34px;
+}
+
+h1, h2, h3 {
+    color: var(--mg-text);
+    letter-spacing: -.025em;
+}
+
+h1 {
+    font-size: clamp(27px, 3vw, 35px);
+    font-weight: 750;
+}
+
+header p,
+.dashboard-header p,
+.garage-heading p {
+    color: var(--mg-muted);
+    font-size: 14px;
+}
+
+.dashboard-stats {
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.dashboard-card,
+.dashboard-panel,
+.car-card,
+.market-section,
+.market-card,
+.market-chart-card,
+.service-panel {
+    background: linear-gradient(145deg, rgba(32,37,42,.98), rgba(25,29,33,.98));
+    border: 1px solid var(--mg-border);
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,.10);
+}
+
+.dashboard-card {
+    position: relative;
+    min-height: 154px;
+    padding: 23px 24px;
+    overflow: hidden;
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.dashboard-card::after {
+    content: "";
+    position: absolute;
+    top: -35px;
+    right: -25px;
+    width: 105px;
+    height: 105px;
+    border: 1px solid rgba(240,138,60,.10);
+    border-radius: 50%;
+    box-shadow: 0 0 0 14px rgba(240,138,60,.025), 0 0 0 29px rgba(240,138,60,.018);
+    pointer-events: none;
+}
+
+.dashboard-card:hover,
+.car-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(240,138,60,.38);
+    box-shadow: 0 14px 34px rgba(0,0,0,.19);
+}
+
+.dashboard-card-label {
+    color: #a6afb8;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .02em;
+}
+
+.dashboard-card h2 {
+    position: relative;
+    z-index: 1;
+    margin: 18px 0 7px;
+    color: var(--mg-text);
+    font-size: clamp(25px, 2.4vw, 32px);
+    font-weight: 750;
+    letter-spacing: -.04em;
+}
+
+.dashboard-card p {
+    color: #7f8993;
+    font-size: 12px;
+}
+
+.dashboard-bottom {
+    gap: 16px;
+}
+
+.dashboard-panel {
+    min-width: 0;
+    padding: 24px;
+}
+
+.dashboard-panel h2,
+.service-panel h2 {
+    margin-bottom: 17px;
+    color: var(--mg-text);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.dashboard-panel-header {
+    margin-bottom: 18px;
+}
+
+#dashboard-garage-count {
+    padding: 5px 9px;
+    border: 1px solid rgba(240,138,60,.2);
+    border-radius: 20px;
+    background: var(--mg-accent-soft);
+    color: #ffad70;
+    font-size: 11px;
+}
+
+.dashboard-car-item,
+.dashboard-event-item {
+    border: 1px solid var(--mg-border);
+    border-left: 2px solid var(--mg-accent);
+    border-radius: 11px;
+    background: rgba(255,255,255,.025);
+}
+
+.dashboard-car-item {
+    padding: 13px 15px;
+}
+
+.dashboard-event-item {
+    padding: 13px 14px;
+}
+
+#dashboard-garage-button {
+    margin-top: 5px;
+    border-radius: 10px;
+}
+
+button {
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 9px;
+    background: linear-gradient(135deg, #f49a52, #df762d);
+    color: #191512;
+    font-family: inherit;
+    font-weight: 700;
+    box-shadow: 0 5px 16px rgba(224,112,39,.14);
+    transition: transform .18s ease, filter .18s ease, box-shadow .18s ease;
+}
+
+button:hover {
+    filter: brightness(1.08);
+    transform: translateY(-1px);
+    box-shadow: 0 7px 20px rgba(224,112,39,.2);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#add-car-btn {
+    padding: 13px 20px;
+    border: 1px solid rgba(255,177,119,.35);
+    border-radius: 11px;
+    background: linear-gradient(135deg, #f5a15d, #e47a31);
+    color: #1b1713;
+    box-shadow: 0 7px 22px rgba(224,112,39,.18);
+}
+
+.car-card {
+    padding: 20px;
+    transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease;
+}
+
+.car-card img {
+    border-radius: 11px;
+    background: #141719;
+}
+
+.car-card h2 {
+    color: var(--mg-text);
+    font-size: 20px;
+}
+
+.car-card p {
+    color: #aeb6be;
+    font-size: 13px;
+}
+
+#cars-list {
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.market-section {
+    padding: 26px;
+}
+
+.market-header h2,
+.chart-heading h3,
+.market-card strong {
+    color: var(--mg-text);
+}
+
+.market-header p,
+.market-header .market-tag {
+    color: var(--mg-muted);
+}
+
+.market-tag {
+    background: var(--mg-accent-soft);
+    color: #ffad70 !important;
+}
+
+.market-controls,
+.market-card,
+.market-chart-card {
+    background: rgba(12,15,17,.35);
+    border-color: var(--mg-border);
+}
+
+.market-card strong {
+    font-weight: 750;
+}
+
+.market-car-name,
+.period-heading strong {
+    color: #ffad70;
+}
+
+.expense-item,
+.service-item,
+.planned-service-item {
+    background: #1c2024;
+    border-color: var(--mg-border);
+    border-radius: 11px;
+}
+
+.expense-item:hover {
+    background: #22272c;
+    border-color: rgba(240,138,60,.35);
+}
+
+.settings-modal {
+    background: #1b1f23;
+    border-color: var(--mg-border-strong);
+    border-radius: 20px;
+    box-shadow: 0 28px 90px rgba(0,0,0,.55);
+}
+
+.settings-close {
+    border: 1px solid var(--mg-border);
+    background: #292f35;
+}
+
+input,
+select,
+textarea {
+    max-width: 100%;
+    border: 1px solid var(--mg-border-strong);
+    border-radius: 9px;
+    background: #15191c;
+    color: var(--mg-text);
+    padding: 11px 13px;
+    font: inherit;
+    outline: none;
+    transition: border-color .2s ease, box-shadow .2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: rgba(240,138,60,.65);
+    box-shadow: 0 0 0 3px rgba(240,138,60,.10);
+}
+
+#car-form {
+    margin-top: 25px;
+    padding: 24px;
+    border: 1px solid var(--mg-border);
+    border-radius: 15px;
+    background: var(--mg-surface);
+}
+
+#car-form h2 {
+    margin-bottom: 18px;
+    color: var(--mg-text);
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        width: 220px;
+        min-width: 220px;
+    }
+
+    .content {
+        padding: 32px 24px;
+    }
+
+    .dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 650px) {
+    .app {
+        display: block;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-width: 0;
+        min-height: auto;
+        padding: 18px 16px 12px;
+        border-right: 0;
+        border-bottom: 1px solid var(--mg-border);
+    }
+
+    .sidebar h2 {
+        margin-bottom: 14px;
+        padding: 0 5px 13px;
+    }
+
+    .sidebar h2::after {
+        right: 5px;
+        left: 5px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 4px;
+    }
+
+    nav a {
+        flex: 0 0 auto;
+        min-height: 40px;
+        padding: 9px 12px;
+        font-size: 12px;
+    }
+
+    .content {
+        padding: 26px 16px;
+    }
+
+    .dashboard-stats,
+    .dashboard-bottom,
+    #cars-list,
+    .market-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .garage-header-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* Светлая тема: те же формы и акценты, но светлая палитра */
+body.light-theme {
+    color-scheme: light;
+    --mg-bg: #f0f3f7;
+    --mg-sidebar: #ffffff;
+    --mg-surface: #ffffff;
+    --mg-surface-raised: #f7f9fc;
+    --mg-border: rgba(35,49,66,.10);
+    --mg-border-strong: rgba(35,49,66,.17);
+    --mg-text: #202a36;
+    --mg-muted: #718096;
+    --mg-accent: #347fc5;
+    --mg-accent-strong: #2873bd;
+    --mg-accent-soft: rgba(52,127,197,.10);
+    --mg-shadow: 0 14px 38px rgba(31,51,73,.08);
+    background: radial-gradient(ellipse at 78% -10%, rgba(52,127,197,.07), transparent 34%), var(--mg-bg);
+}
+
+body.light-theme .sidebar {
+    background: linear-gradient(180deg, #ffffff, #f8fafc);
+    border-right-color: var(--mg-border);
+}
+
+body.light-theme .sidebar h2 {
+    color: var(--mg-text);
+}
+
+body.light-theme .sidebar h2::before {
+    background: linear-gradient(180deg, #65a8e5, #2878c8);
+    box-shadow: 0 0 18px rgba(52,127,197,.22);
+}
+
+body.light-theme .sidebar h2::after {
+    background: linear-gradient(90deg, rgba(52,127,197,.35), var(--mg-border), transparent);
+}
+
+body.light-theme nav a {
+    color: #647184;
+}
+
+body.light-theme nav a:hover {
+    background: rgba(35,49,66,.04);
+    color: #263445;
+}
+
+body.light-theme nav a.active {
+    background: linear-gradient(100deg, rgba(52,127,197,.13), rgba(52,127,197,.045));
+    border-color: rgba(52,127,197,.16);
+    color: #2878c8;
+    box-shadow: inset 3px 0 0 #3685d6, 0 6px 18px rgba(31,51,73,.05);
+}
+
+body.light-theme .dashboard-card,
+body.light-theme .dashboard-panel,
+body.light-theme .car-card,
+body.light-theme .market-section,
+body.light-theme .market-card,
+body.light-theme .market-chart-card,
+body.light-theme .service-panel {
+    background: linear-gradient(145deg, #ffffff, #f9fbfd);
+    border-color: var(--mg-border);
+    box-shadow: 0 8px 28px rgba(31,51,73,.045);
+}
+
+body.light-theme .dashboard-card-label,
+body.light-theme .dashboard-card p,
+body.light-theme .car-card p {
+    color: #718096;
+}
+
+body.light-theme .dashboard-card h2,
+body.light-theme .dashboard-panel h2,
+body.light-theme .service-panel h2,
+body.light-theme .car-card h2,
+body.light-theme .market-header h2,
+body.light-theme .chart-heading h3,
+body.light-theme .market-card strong {
+    color: #202a36;
+}
+
+body.light-theme .dashboard-car-item,
+body.light-theme .dashboard-event-item {
+    background: #f6f8fb;
+    border-color: var(--mg-border);
+    border-left-color: #3685d6;
+}
+
+body.light-theme #dashboard-garage-count,
+body.light-theme .market-tag {
+    background: rgba(52,127,197,.10);
+    color: #2878c8 !important;
+}
+
+body.light-theme button,
+body.light-theme #add-car-btn {
+    background: linear-gradient(135deg, #438fdf, #2878c8);
+    color: #ffffff;
+    border-color: rgba(52,127,197,.22);
+    box-shadow: 0 5px 16px rgba(52,127,197,.13);
+}
+
+body.light-theme button:hover,
+body.light-theme #add-car-btn:hover {
+    background: linear-gradient(135deg, #5aa1ea, #3685d6);
+}
+
+body.light-theme .market-controls,
+body.light-theme .market-card,
+body.light-theme .market-chart-card {
+    background: #f6f8fb;
+    border-color: var(--mg-border);
+}
+
+body.light-theme .market-car-name,
+body.light-theme .period-heading strong {
+    color: #2878c8;
+}
+
+body.light-theme .expense-item,
+body.light-theme .service-item,
+body.light-theme .planned-service-item {
+    background: #f7f9fc;
+    border-color: var(--mg-border);
+}
+
+body.light-theme .expense-item:hover {
+    background: #f0f5fb;
+    border-color: rgba(52,127,197,.35);
+}
+
+body.light-theme .settings-modal {
+    background: #ffffff;
+    border-color: var(--mg-border-strong);
+}
+
+body.light-theme .settings-close {
+    background: #edf1f6;
+    color: #263445;
+}
+
+body.light-theme input,
+body.light-theme select,
+body.light-theme textarea {
+    background: #ffffff;
+    color: #202a36;
+    border-color: var(--mg-border-strong);
+}
+
+body.light-theme input:focus,
+body.light-theme select:focus,
+body.light-theme textarea:focus {
+    border-color: rgba(52,127,197,.65);
+    box-shadow: 0 0 0 3px rgba(52,127,197,.10);
+}
+
+body.light-theme #car-form {
+    background: #ffffff;
+    border-color: var(--mg-border);
+}
+
+body.light-theme #car-form h2 {
+    color: #202a36;
+}
