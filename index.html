@@ -161,70 +161,67 @@
             <div class="market-header">
                 <div>
                     <h2>Аналитика автомобильного рынка</h2>
-                    <p>Продажи автомобилей в России</p>
+                    <p>Новые легковые автомобили в России · октябрь 2026</p>
                 </div>
-
-                <span class="market-tag">РОССИЯ</span>
+                <span class="market-tag">РОССИЯ · 2026</span>
             </div>
 
-            <div class="market-controls">
-
-                <div class="period-heading">
-                    <label for="period-slider">Период статистики</label>
-                    <strong id="period-value">12 месяцев</strong>
-                </div>
-
-                <input type="range" id="period-slider" min="1" max="24" value="12">
-
-                <div class="slider-labels">
-                    <span>1 месяц</span>
-                    <span>24 месяца</span>
-                </div>
-
-                <p class="period-hint">
-                    Период заканчивается декабрём 2022 года
-                </p>
-
+            <div class="market-update-note">
+                <span class="market-live-dot"></span>
+                Последнее обновление: 5 ноября 2026 · доступны итоги октября
             </div>
 
             <div class="market-stats">
-
                 <div class="market-card">
-                    <span class="market-car-name">GAC GS8</span>
-                    <strong id="gac-total">0</strong>
-                    <span>Продано автомобилей</span>
+                    <span class="market-car-name">Рынок за октябрь</span>
+                    <strong>132 894</strong>
+                    <span>новых легковых автомобиля</span>
+                    <small class="market-change negative">−19,8% к октябрю 2025</small>
                 </div>
-
                 <div class="market-card">
-                    <span class="market-car-name">Toyota Corolla</span>
-                    <strong id="toyota-total">0</strong>
-                    <span>Продано автомобилей</span>
+                    <span class="market-car-name">С начала года</span>
+                    <strong>1 100 664</strong>
+                    <span>январь — октябрь 2026</span>
+                    <small class="market-change positive">+3,7% к 10 месяцам 2025</small>
                 </div>
-
+                <div class="market-card">
+                    <span class="market-car-name">Toyota в октябре</span>
+                    <strong>3 958</strong>
+                    <span>новых автомобилей · 7-е место</span>
+                    <small class="market-change negative">−5,0% год к году</small>
+                </div>
             </div>
 
             <div class="market-chart-card">
-
                 <div class="chart-heading">
-                    <h3>Динамика продаж</h3>
-                    <span>Количество автомобилей по месяцам</span>
+                    <h3>Лидеры продаж по маркам</h3>
+                    <span>Октябрь 2026 · количество новых автомобилей</span>
                 </div>
+                <div id="market-ranking-chart" class="market-ranking-chart"></div>
+            </div>
 
-                <div class="chart-legend">
-                    <span><i class="legend-gac"></i> GAC GS8</span>
-                    <span><i class="legend-toyota"></i> Toyota Corolla</span>
+            <div class="market-chart-card market-table-card">
+                <div class="chart-heading">
+                    <h3>Продажи за 10 месяцев</h3>
+                    <span>Январь — октябрь 2026 · сравнение с 2025 годом</span>
                 </div>
-
-                <div id="sales-chart" class="sales-chart"></div>
-
+                <div class="market-table-wrap">
+                    <table class="market-data-table">
+                        <thead>
+                            <tr>
+                                <th>Марка</th>
+                                <th>Продано</th>
+                                <th>Изменение</th>
+                            </tr>
+                        </thead>
+                        <tbody id="market-brands-table"></tbody>
+                    </table>
+                </div>
             </div>
 
             <div class="market-source">
-                Источник данных:
-                <a href="https://www.chinamobil.ru/gac/?view=sales_rus" target="_blank">GAC GS8</a>
-                и
-                <a href="https://www.chinamobil.ru/cars/toyota/toyota-corolla/sales_rus/" target="_blank">Toyota Corolla</a>.
-                Исторические данные за 2021–2022 годы.
+                Источник: <a href="https://www.autostat.ru/press-releases/63433/" target="_blank" rel="noopener">АВТОСТАТ — продажи новых легковых автомобилей в октябре 2026</a>.
+                Данные основаны на регистрациях электронных паспортов транспортных средств. Обновление статистики — после публикации следующего месячного отчёта.
             </div>
 
         </section>
