@@ -2254,3 +2254,49 @@ body.light-theme #car-form h2 {
         max-width: 1780px;
     }
 }
+
+/* VICE CITY — Miami neon theme */
+.vice-city-preview{position:relative;overflow:hidden;background:linear-gradient(145deg,#211c46,#542d69 48%,#f27691)}
+.vice-city-preview::after{content:"";position:absolute;right:8px;bottom:7px;width:25px;height:25px;border-radius:50%;background:#ffc77a;box-shadow:0 0 12px rgba(255,199,122,.7)}
+.vice-city-preview span{position:relative;z-index:1;background:rgba(88,235,220,.85)}
+.vice-city-preview span:first-child{width:75%}.vice-city-preview span:nth-child(2){width:55%;background:#f58bb0}.vice-city-preview span:nth-child(3){width:68%;background:rgba(255,255,255,.65)}
+body.vice-city-theme{color-scheme:dark;--mg-bg:#100f24;--mg-sidebar:#17152f;--mg-surface:#211d40;--mg-surface-raised:#29234c;--mg-border:rgba(145,128,255,.17);--mg-border-strong:rgba(145,128,255,.28);--mg-text:#fff2fa;--mg-muted:#b7a9d0;--mg-accent:#ff75ad;--mg-accent-strong:#ff9ac5;--mg-accent-soft:rgba(255,117,173,.13);background:radial-gradient(ellipse at 75% -12%,rgba(255,105,165,.22),transparent 38%),radial-gradient(ellipse at 15% 90%,rgba(83,224,218,.09),transparent 34%),#100f24;color:#fff2fa;font-family:"Outfit","Segoe UI",sans-serif}
+body.vice-city-theme h1,body.vice-city-theme .garage-heading h1,body.vice-city-theme .dashboard-header h1,body.vice-city-theme .market-header h2{color:#fff0f7;font-family:"Bebas Neue","Outfit",sans-serif;font-size:clamp(34px,3.5vw,43px);font-weight:400;letter-spacing:1.4px;text-shadow:0 0 22px rgba(255,105,165,.18)}
+body.vice-city-theme h2,body.vice-city-theme h3{color:#ff9bc4}
+body.vice-city-theme .sidebar{background:linear-gradient(180deg,#1b1738,#14132c);border-right-color:rgba(120,224,225,.16);box-shadow:12px 0 45px rgba(0,0,0,.2)}
+body.vice-city-theme .sidebar h2{color:#fff0f7;font-family:"Bebas Neue",sans-serif;font-size:23px;letter-spacing:3px}
+body.vice-city-theme .sidebar h2::before{background:linear-gradient(180deg,#65f0df,#ff78b2);box-shadow:0 0 18px rgba(101,240,223,.35)}
+body.vice-city-theme .sidebar h2::after{background:linear-gradient(90deg,rgba(101,240,223,.45),rgba(255,117,173,.25),transparent)}
+body.vice-city-theme nav a{color:#b9b0d2;border-color:transparent}
+body.vice-city-theme nav a:hover{color:#fff;background:rgba(116,224,221,.07)}
+body.vice-city-theme nav a.active{color:#ffacd0;background:linear-gradient(100deg,rgba(255,117,173,.17),rgba(101,240,223,.06));border-color:rgba(255,117,173,.2);box-shadow:inset 3px 0 0 #ff75ad,0 6px 20px rgba(0,0,0,.15)}
+body.vice-city-theme .dashboard-card,body.vice-city-theme .dashboard-panel,body.vice-city-theme .car-card,body.vice-city-theme .market-section,body.vice-city-theme .market-card,body.vice-city-theme .market-chart-card,body.vice-city-theme .service-panel{background:linear-gradient(145deg,rgba(39,33,75,.97),rgba(27,25,57,.98));border-color:rgba(143,126,230,.18);box-shadow:0 12px 34px rgba(0,0,0,.18)}
+body.vice-city-theme .dashboard-card::after{border-color:rgba(101,240,223,.13);box-shadow:0 0 0 14px rgba(255,117,173,.035),0 0 0 29px rgba(101,240,223,.025)}
+body.vice-city-theme .dashboard-card-label,body.vice-city-theme .dashboard-card p,body.vice-city-theme .dashboard-panel-header span,body.vice-city-theme .car-card p,body.vice-city-theme .chart-heading span{color:#b7accd}
+body.vice-city-theme .dashboard-card h2,body.vice-city-theme .market-card strong{color:#fff1f8}
+body.vice-city-theme .dashboard-card:hover,body.vice-city-theme .car-card:hover{border-color:rgba(101,240,223,.48);box-shadow:0 14px 36px rgba(0,0,0,.25),0 0 22px rgba(101,240,223,.06)}
+body.vice-city-theme .dashboard-car-item,body.vice-city-theme .dashboard-event-item{background:rgba(12,12,34,.35);border-color:rgba(143,126,230,.18);border-left-color:#65e8dc}
+body.vice-city-theme .dashboard-car-item strong,body.vice-city-theme .dashboard-event-details strong{color:#fff0f7}
+body.vice-city-theme .dashboard-car-item span,body.vice-city-theme .dashboard-event-details span,body.vice-city-theme .dashboard-event-details small{color:#b7accd}
+body.vice-city-theme #dashboard-garage-count,body.vice-city-theme .market-tag{color:#70eee0!important;background:rgba(101,240,223,.09);border-color:rgba(101,240,223,.2)}
+body.vice-city-theme .dashboard-event-icon{background:rgba(101,240,223,.10)}
+body.vice-city-theme .dashboard-event-amount,body.vice-city-theme .market-car-name,body.vice-city-theme .period-heading strong{color:#ff9bc4}
+body.vice-city-theme button,body.vice-city-theme #add-car-btn,body.vice-city-theme #dashboard-garage-button{color:#17142d;background:linear-gradient(120deg,#72eee0,#ff8fba);border:1px solid rgba(255,255,255,.22);box-shadow:0 6px 20px rgba(255,117,173,.16)}
+body.vice-city-theme button:hover,body.vice-city-theme #add-car-btn:hover{filter:brightness(1.1);box-shadow:0 8px 25px rgba(101,240,223,.2)}
+body.vice-city-theme input,body.vice-city-theme select,body.vice-city-theme textarea{color:#fff2fa;background:#17152f;border-color:rgba(143,126,230,.3);font-family:"Outfit",sans-serif}
+body.vice-city-theme input:focus,body.vice-city-theme select:focus,body.vice-city-theme textarea:focus{border-color:#65e8dc;box-shadow:0 0 0 3px rgba(101,240,223,.11)}
+body.vice-city-theme #car-form,body.vice-city-theme .expense-item,body.vice-city-theme .service-item,body.vice-city-theme .planned-service-item{background:#1c1938;border-color:rgba(143,126,230,.2)}
+body.vice-city-theme .expense-item:hover{background:#26204a;border-color:rgba(101,240,223,.4)}
+body.vice-city-theme .settings-modal{color:#fff2fa;background:linear-gradient(145deg,#29234c,#1a1735);border-color:rgba(143,126,230,.3)}
+body.vice-city-theme .settings-header h2,body.vice-city-theme .settings-content h3,body.vice-city-theme #car-form h2,body.vice-city-theme .service-panel h2{color:#ff9bc4}
+body.vice-city-theme .settings-header p,body.vice-city-theme .settings-content>p{color:#b7accd}
+body.vice-city-theme .theme-option{color:#fff2fa;background:rgba(15,14,38,.45);border-color:rgba(143,126,230,.22)}
+body.vice-city-theme .theme-option.active{background:linear-gradient(100deg,rgba(255,117,173,.14),rgba(101,240,223,.07));border-color:#ff8fba}
+body.vice-city-theme .theme-option-info span{color:#b7accd}
+body.vice-city-theme .settings-close{color:#fff2fa;background:#332b59;border-color:rgba(143,126,230,.25)}
+body.vice-city-theme .settings-close:hover{color:#65e8dc;background:rgba(101,240,223,.1);border-color:#65e8dc}
+body.vice-city-theme .sales-chart{border-bottom-color:rgba(143,126,230,.25)}
+body.vice-city-theme .legend-gac,body.vice-city-theme .chart-bar-gac{background:#ff75ad}
+body.vice-city-theme .legend-toyota,body.vice-city-theme .chart-bar-toyota{background:#65e8dc}
+body.vice-city-theme .market-source,body.vice-city-theme .market-source a{color:#b7accd}
+body.vice-city-theme .market-source a:hover{color:#65e8dc}
