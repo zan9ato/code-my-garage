@@ -1396,3 +1396,46 @@ body.light-theme .planned-service-item p {
         font-size: 13px;
     }
 }
+
+/* Кнопка добавления автомобиля */
+#add-car-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 13px 22px;
+    min-height: 46px;
+    border: 1px solid rgba(232, 117, 36, 0.45);
+    border-radius: 10px;
+    background: linear-gradient(135deg, #F18432, #D9651C);
+    color: #171717;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+    box-shadow: 0 4px 14px rgba(232, 117, 36, 0.16);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+#add-car-btn:hover {
+    background: linear-gradient(135deg, #FF984B, #E87524);
+    box-shadow: 0 6px 18px rgba(232, 117, 36, 0.25);
+    transform: translateY(-2px);
+}
+
+#add-car-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 7px rgba(232, 117, 36, 0.18);
+}
+
+body.light-theme #add-car-btn {
+    border-color: rgba(54, 133, 214, 0.35);
+    background: linear-gradient(135deg, #438FDF, #2878C8);
+    color: #ffffff;
+    box-shadow: 0 4px 14px rgba(54, 133, 214, 0.16);
+}
+
+body.light-theme #add-car-btn:hover {
+    background: linear-gradient(135deg, #5AA1EA, #3685D6);
+    box-shadow: 0 6px 18px rgba(54, 133, 214, 0.24);
+}
+
