@@ -2118,3 +2118,139 @@ body.light-theme #car-form {
 body.light-theme #car-form h2 {
     color: #202a36;
 }
+
+
+/* ==========================================
+   UI FIX — настройки, пропорции и размеры
+   ========================================== */
+
+/* Крестик не должен наследовать размеры обычных кнопок */
+.settings-header {
+    align-items: center;
+    gap: 20px;
+}
+
+.settings-header > div {
+    min-width: 0;
+}
+
+.settings-close,
+#close-settings {
+    display: inline-flex;
+    flex: 0 0 38px;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    min-width: 38px;
+    height: 38px;
+    min-height: 38px;
+    padding: 0 !important;
+    margin: 0;
+    border: 1px solid var(--mg-border-strong);
+    border-radius: 10px;
+    background: var(--mg-surface-raised);
+    color: var(--mg-text);
+    font-family: Arial, sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+    line-height: 1;
+    text-align: center;
+    box-shadow: none;
+    transform: none;
+}
+
+.settings-close:hover,
+#close-settings:hover {
+    background: var(--mg-accent-soft);
+    border-color: var(--mg-accent);
+    color: var(--mg-accent-strong);
+    box-shadow: none;
+    transform: none;
+}
+
+.settings-modal {
+    width: min(100%, 520px);
+    max-height: min( min(720px, 88vh), 88dvh);
+    overflow-y: auto;
+    padding: 28px;
+    border-radius: 18px;
+}
+
+.settings-header {
+    margin-bottom: 26px;
+}
+
+.settings-header h2 {
+    font-size: 23px;
+    line-height: 1.25;
+}
+
+.settings-content h3 {
+    font-size: 16px;
+}
+
+.theme-option {
+    min-height: 88px;
+    padding: 12px 14px;
+    border-radius: 11px;
+}
+
+.theme-preview {
+    width: 82px;
+    height: 56px;
+}
+
+@media (max-width: 600px) {
+    .settings-overlay {
+        padding: 14px;
+    }
+
+    .settings-modal {
+        padding: 21px;
+        max-height: 90vh;
+        max-height: 90dvh;
+    }
+
+    .settings-header {
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+
+    .settings-header h2 {
+        font-size: 21px;
+    }
+
+    .theme-option {
+        gap: 11px;
+        padding: 10px;
+    }
+
+    .theme-preview {
+        width: 68px;
+        height: 50px;
+    }
+}
+
+/* Чуть спокойнее общие отступы и ширина контента на больших экранах */
+.content {
+    padding: clamp(28px, 3.2vw, 48px) clamp(24px, 3.5vw, 54px);
+}
+
+.dashboard-stats {
+    gap: 14px;
+}
+
+.dashboard-card {
+    min-height: 142px;
+    padding: 21px;
+}
+
+.dashboard-panel {
+    padding: 22px;
+}
+
+@media (min-width: 1500px) {
+    .content {
+        max-width: 1780px;
+    }
+}
