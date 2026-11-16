@@ -1464,6 +1464,7 @@ if (settingsOverlay) {
 
 function applyTheme(theme) {
     document.body.classList.toggle("light-theme", theme === "light");
+    document.body.classList.toggle("vice-city-theme", theme === "vice-city");
 
     themeOptions.forEach(function(option) {
         const isActive = option.dataset.theme === theme;
