@@ -1229,111 +1229,75 @@ function renderUpcomingServices() {
 // АНАЛИТИКА ПРОДАЖ АВТОМОБИЛЕЙ
 // ==========================================
 
-const salesData = [
-    { month: "Янв 21", gac: 27, toyota: 58 },
-    { month: "Фев 21", gac: 21, toyota: 146 },
-    { month: "Мар 21", gac: 68, toyota: 203 },
-    { month: "Апр 21", gac: 63, toyota: 182 },
-    { month: "Май 21", gac: 64, toyota: 139 },
-    { month: "Июн 21", gac: 74, toyota: 138 },
-    { month: "Июл 21", gac: 62, toyota: 46 },
-    { month: "Авг 21", gac: 72, toyota: 129 },
-    { month: "Сен 21", gac: 74, toyota: 64 },
-    { month: "Окт 21", gac: 108, toyota: 51 },
-    { month: "Ноя 21", gac: 174, toyota: 19 },
-    { month: "Дек 21", gac: 116, toyota: 72 },
-    { month: "Янв 22", gac: 81, toyota: 18 },
-    { month: "Фев 22", gac: 53, toyota: 19 },
-    { month: "Мар 22", gac: 22, toyota: 13 },
-    { month: "Апр 22", gac: 20, toyota: 6 },
-    { month: "Май 22", gac: 9, toyota: 11 },
-    { month: "Июн 22", gac: 7, toyota: 2 },
-    { month: "Июл 22", gac: 1, toyota: 1 },
-    { month: "Авг 22", gac: 77, toyota: 5 },
-    { month: "Сен 22", gac: 76, toyota: 1 },
-    { month: "Окт 22", gac: 42, toyota: 2 },
-    { month: "Ноя 22", gac: 31, toyota: 1 },
-    { month: "Дек 22", gac: 18, toyota: 1 }
+// АКТУАЛЬНАЯ АНАЛИТИКА РЫНКА РОССИИ — ОКТЯБРЬ 2026
+const marketBrands = [
+    { name: "LADA", october: 29696, year: 268396, change: "−0,9%", positive: false },
+    { name: "Haval", october: 16868, year: 145386, change: "+7,0%", positive: true },
+    { name: "TENET", october: 15285, year: 117435, change: "+933%", positive: true },
+    { name: "Geely", october: 7890, year: 66434, change: "−13,3%", positive: false },
+    { name: "Changan", october: 7706, year: 48847, change: "−14,4%", positive: false },
+    { name: "Belgee", october: 6341, year: 49696, change: "−3,1%", positive: false },
+    { name: "Toyota", october: 3958, year: 30798, change: "+44,0%", positive: true },
+    { name: "Jetour", october: 3770, year: 31529, change: "+2,3%", positive: true },
+    { name: "JELAND", october: 3031, year: 11620, change: "н/д", positive: null },
+    { name: "Mazda", october: 2714, year: 24111, change: "+431%", positive: true }
 ];
 
-const periodSlider = document.getElementById("period-slider");
-const periodValue = document.getElementById("period-value");
-const gacTotal = document.getElementById("gac-total");
-const toyotaTotal = document.getElementById("toyota-total");
-const salesChart = document.getElementById("sales-chart");
+const marketNumberFormat = new Intl.NumberFormat("ru-RU");
 
-const numberFormat = new Intl.NumberFormat("ru-RU");
+function renderMarketAnalytics() {
+    const chart = document.getElementById("market-ranking-chart");
+    const table = document.getElementById("market-brands-table");
 
-function updateMarketStats() {
-    if (!periodSlider || !periodValue || !gacTotal || !toyotaTotal) {
-        return;
+    if (chart) {
+        chart.innerHTML = "";
+        const maxValue = Math.max(...marketBrands.map(brand => brand.october));
+
+        marketBrands.slice(0, 7).forEach(function(brand, index) {
+            const row = document.createElement("div");
+            row.className = "market-rank-row";
+
+            const label = document.createElement("div");
+            label.className = "market-rank-label";
+            label.innerHTML = "<span class='market-rank-number'>" + (index + 1) + "</span><strong>" + brand.name + "</strong>";
+
+            const track = document.createElement("div");
+            track.className = "market-rank-track";
+
+            const bar = document.createElement("div");
+            bar.className = "market-rank-bar" + (brand.name === "Toyota" ? " is-toyota" : "");
+            bar.style.width = (brand.october / maxValue * 100) + "%";
+            track.appendChild(bar);
+
+            const value = document.createElement("span");
+            value.className = "market-rank-value";
+            value.textContent = marketNumberFormat.format(brand.october);
+
+            row.append(label, track, value);
+            chart.appendChild(row);
+        });
     }
 
-    const period = Number(periodSlider.value);
-    const selectedData = salesData.slice(-period);
-
-    const gacSum = selectedData.reduce(
-        (sum, item) => sum + item.gac, 0
-    );
-
-    const toyotaSum = selectedData.reduce(
-        (sum, item) => sum + item.toyota, 0
-    );
-
-    periodValue.textContent = period + " мес.";
-    gacTotal.textContent = numberFormat.format(gacSum);
-    toyotaTotal.textContent = numberFormat.format(toyotaSum);
-
-    renderSalesChart(selectedData);
+    if (table) {
+        table.innerHTML = "";
+        marketBrands.forEach(function(brand) {
+            const row = document.createElement("tr");
+            const name = document.createElement("td");
+            const total = document.createElement("td");
+            const change = document.createElement("td");
+            name.textContent = brand.name;
+            total.textContent = marketNumberFormat.format(brand.year);
+            change.textContent = brand.change;
+            change.className = brand.positive === null ? "market-change-neutral" : (brand.positive ? "market-change-positive" : "market-change-negative");
+            row.append(name, total, change);
+            table.appendChild(row);
+        });
+    }
 }
 
-function renderSalesChart(data) {
-    if (!salesChart) return;
-
-    salesChart.innerHTML = "";
-
-    const maxSales = Math.max(
-        ...data.map(item => Math.max(item.gac, item.toyota)),
-        1
-    );
-
-    data.forEach(function(item) {
-        const month = document.createElement("div");
-        month.className = "chart-month";
-
-        const bars = document.createElement("div");
-        bars.className = "chart-bars";
-
-        const gacBar = document.createElement("div");
-        gacBar.className = "chart-bar chart-bar-gac";
-        gacBar.style.height = (item.gac / maxSales * 100) + "%";
-        gacBar.title = "GAC GS8: " + item.gac;
-
-        const toyotaBar = document.createElement("div");
-        toyotaBar.className = "chart-bar chart-bar-toyota";
-        toyotaBar.style.height = (item.toyota / maxSales * 100) + "%";
-        toyotaBar.title = "Toyota Corolla: " + item.toyota;
-
-        const label = document.createElement("span");
-        label.className = "chart-month-label";
-        label.textContent = item.month;
-
-        bars.appendChild(gacBar);
-        bars.appendChild(toyotaBar);
-
-        month.appendChild(bars);
-        month.appendChild(label);
-
-        salesChart.appendChild(month);
-    });
-}
-
-if (periodSlider) {
-    periodSlider.addEventListener("input", updateMarketStats);
-}
+renderMarketAnalytics();
 
 
-// ==========================================
 // ПЕРЕКЛЮЧЕНИЕ СТРАНИЦ
 // ==========================================
 
