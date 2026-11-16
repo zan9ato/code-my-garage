@@ -1439,3 +1439,35 @@ body.light-theme #add-car-btn:hover {
     box-shadow: 0 6px 18px rgba(54, 133, 214, 0.24);
 }
 
+/* Шапка вкладки «Мой гараж» */
+.garage-header {
+    margin-bottom: 35px;
+}
+
+.garage-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.garage-heading h1 {
+    margin-bottom: 8px;
+}
+
+.garage-heading p {
+    margin: 0;
+}
+
+#add-car-btn {
+    flex-shrink: 0;
+}
+
+@media (max-width: 600px) {
+    .garage-header-top {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+    }
+}
+
