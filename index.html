@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Garage</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- БОКОВОЕ МЕНЮ -->
+    <aside class="sidebar">
+        <h2>MY GARAGE</h2>
+
+        <nav>
+            <a href="#" id="dashboard-link">Главная панель</a>
+            <a href="#" class="active" id="garage-link">Мой гараж</a>
+            <a href="#" id="market-link">Аналитика рынка</a>
+            <a href="#" id="service-link">История обслуживания</a>
+            <a href="#" id="expenses-link">Расходы</a>
+            <a href="#" id="settings-link">Настройки</a>
+        </nav>
+    </aside>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="content">
+
+        <!-- ГЛАВНАЯ ПАНЕЛЬ -->
+        <section id="dashboard-page" class="page">
+
+            <header class="dashboard-header">
+                <div>
+                    <h1>Главная панель</h1>
+                    <p>Общая информация о твоём гараже</p>
+                </div>
+            </header>
+
+            <div class="dashboard-stats">
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Автомобили</span>
+                    <h2 id="dashboard-cars-count">0</h2>
+                    <p>В твоём гараже</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Общий пробег</span>
+                    <h2 id="dashboard-mileage">0 км</h2>
+                    <p>По всем автомобилям</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Общие расходы</span>
+                    <h2 id="dashboard-expenses">0 ₽</h2>
+                    <p>На содержание автомобилей</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Обслуживание</span>
+                    <h2 id="dashboard-service">—</h2>
+                    <p>Ближайшее обслуживание</p>
+                </div>
+
+            </div>
+
+            <div class="dashboard-bottom">
+
+                <!-- МОЙ ГАРАЖ -->
+                <div class="dashboard-panel">
+
+                    <div class="dashboard-panel-header">
+                        <h2>Мой гараж</h2>
+                        <span id="dashboard-garage-count">0 автомобилей</span>
+                    </div>
+
+                    <div id="dashboard-garage-list">
+                        <p>Пока нет добавленных автомобилей.</p>
+                    </div>
+
+                    <button id="dashboard-garage-button">
+                        Перейти в гараж
+                    </button>
+
+                </div>
+
+                <!-- ПОСЛЕДНИЕ СОБЫТИЯ -->
+                <div class="dashboard-panel dashboard-events-panel">
+
+                    <div class="dashboard-panel-header">
+                        <h2>Последние события</h2>
+                        <span>История активности</span>
+                    </div>
+
+                    <div id="dashboard-events-list" class="dashboard-events-list">
+
+                        <div class="dashboard-event-empty">
+                            <p>Пока событий нет.</p>
+                            <span>
+                                Здесь будут отображаться последние расходы
+                                и выполненные работы по обслуживанию.
+                            </span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- МОЙ ГАРАЖ -->
+        <section id="garage-page" class="page">
+
+            <header>
+                <button id="add-car-btn">+ Добавить автомобиль</button>
+
+                <div id="car-form" style="display: none;">
+                    <h2>Новый автомобиль</h2>
+
+                    <input type="text" id="car-brand" placeholder="Марка">
+                    <input type="text" id="car-model" placeholder="Модель">
+                    <input type="number" id="car-mileage" placeholder="Пробег (км)">
+                    <input type="number" id="car-year" placeholder="Год выпуска">
+                    <input type="text" id="car-engine" placeholder="Двигатель">
+                    <input type="text" id="car-image" placeholder="Ссылка на фото автомобиля">
+
+                    <button id="save-car-btn">Сохранить автомобиль</button>
+                </div>
+
+                <h1>Мой гараж</h1>
+                <p>Управление твоими автомобилями</p>
+            </header>
+
+            <section id="cars-list">
+                <section class="car-card">
+                    <h2>Toyota Corolla</h2>
+                    <p>Год выпуска: 1995</p>
+                    <p>Двигатель: 4E-FE</p>
+                    <p>Пробег: 250 000 км</p>
+                </section>
+            </section>
+
+        </section>
+
+        <!-- АНАЛИТИКА РЫНКА -->
+        <section class="market-section page" id="market-page" style="display: none;">
+
+            <div class="market-header">
+                <div>
+                    <h2>Аналитика автомобильного рынка</h2>
+                    <p>Продажи автомобилей в России</p>
+                </div>
+
+                <span class="market-tag">РОССИЯ</span>
+            </div>
+
+            <div class="market-controls">
+
+                <div class="period-heading">
+                    <label for="period-slider">Период статистики</label>
+                    <strong id="period-value">12 месяцев</strong>
+                </div>
+
+                <input type="range" id="period-slider" min="1" max="24" value="12">
+
+                <div class="slider-labels">
+                    <span>1 месяц</span>
+                    <span>24 месяца</span>
+                </div>
+
+                <p class="period-hint">
+                    Период заканчивается декабрём 2022 года
+                </p>
+
+            </div>
+
+            <div class="market-stats">
+
+                <div class="market-card">
+                    <span class="market-car-name">GAC GS8</span>
+                    <strong id="gac-total">0</strong>
+                    <span>Продано автомобилей</span>
+                </div>
+
+                <div class="market-card">
+                    <span class="market-car-name">Toyota Corolla</span>
+                    <strong id="toyota-total">0</strong>
+                    <span>Продано автомобилей</span>
+                </div>
+
+            </div>
+
+            <div class="market-chart-card">
+
+                <div class="chart-heading">
+                    <h3>Динамика продаж</h3>
+                    <span>Количество автомобилей по месяцам</span>
+                </div>
+
+                <div class="chart-legend">
+                    <span><i class="legend-gac"></i> GAC GS8</span>
+                    <span><i class="legend-toyota"></i> Toyota Corolla</span>
+                </div>
+
+                <div id="sales-chart" class="sales-chart"></div>
+
+            </div>
+
+            <div class="market-source">
+                Источник данных:
+                <a href="https://www.chinamobil.ru/gac/?view=sales_rus" target="_blank">GAC GS8</a>
+                и
+                <a href="https://www.chinamobil.ru/cars/toyota/toyota-corolla/sales_rus/" target="_blank">Toyota Corolla</a>.
+                Исторические данные за 2021–2022 годы.
+            </div>
+
+        </section>
+
+        <!-- ИСТОРИЯ ОБСЛУЖИВАНИЯ -->
+        <section id="service-page" class="page" style="display: none;">
+
+            <header class="dashboard-header">
+                <div>
+                    <h1>История обслуживания</h1>
+                    <p>Контроль технического состояния автомобилей</p>
+                </div>
+
+                <button id="add-service-btn">
+                    + Добавить обслуживание
+                </button>
+            </header>
+
+            <!-- СТАТИСТИКА -->
+            <div class="dashboard-stats">
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Всего обслуживаний</span>
+                    <h2 id="service-count">0</h2>
+                    <p>За всё время</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Ближайшее ТО</span>
+                    <h2 id="next-service">—</h2>
+                    <p>По пробегу или дате</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Затраты на обслуживание</span>
+                    <h2 id="service-expenses">0 ₽</h2>
+                    <p>Общая сумма</p>
+                </div>
+
+            </div>
+
+            <!-- ФОРМА ДОБАВЛЕНИЯ ОБСЛУЖИВАНИЯ -->
+            <div id="service-form" class="dashboard-panel" style="display: none;">
+
+                <h2>Новое обслуживание</h2>
+
+                <div class="expense-inputs">
+
+                    <label>
+                        Автомобиль
+                        <select id="service-car">
+                            <option value="">Выбери автомобиль</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Вид обслуживания
+                        <select id="service-category">
+                            <option value="Замена масла">Замена масла</option>
+                            <option value="Замена фильтров">Замена фильтров</option>
+                            <option value="Тормозная система">Тормозная система</option>
+                            <option value="Подвеска">Подвеска</option>
+                            <option value="Двигатель">Двигатель</option>
+                            <option value="Трансмиссия">Трансмиссия</option>
+                            <option value="Электрика">Электрика</option>
+                            <option value="Диагностика">Диагностика</option>
+                            <option value="Другое">Другое</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Дата выполнения
+                        <input type="date" id="service-date">
+                    </label>
+
+                    <label>
+                        Текущий пробег (км)
+                        <input type="number" id="service-mileage" min="0" placeholder="Например, 150000">
+                    </label>
+
+                    <label>
+                        Стоимость (₽)
+                        <input type="number" id="service-amount" min="0" placeholder="Например, 7500">
+                    </label>
+
+                    <label>
+                        Следующее ТО по пробегу (км)
+                        <input type="number" id="service-next-mileage" min="0" placeholder="Например, 160000">
+                    </label>
+
+                    <label>
+                        Следующее ТО по дате
+                        <input type="date" id="service-next-date">
+                    </label>
+
+                    <label>
+                        Описание работ
+                        <input type="text" id="service-description" placeholder="Что было сделано">
+                    </label>
+
+                </div>
+
+                <button id="save-service-btn">
+                    Сохранить обслуживание
+                </button>
+
+            </div>
+
+            <!-- ПЛАНИРУЕМОЕ ОБСЛУЖИВАНИЕ И ИСТОРИЯ -->
+            <div class="service-layout">
+
+                <div class="dashboard-panel service-panel">
+
+                    <h2>Планируемое обслуживание</h2>
+
+                    <div id="upcoming-service-list">
+                        <p>Пока нет запланированных работ.</p>
+                    </div>
+
+                </div>
+
+                <div class="dashboard-panel service-panel">
+
+                    <h2>История выполненных работ</h2>
+
+                    <div id="service-list">
+                        <p>Пока нет записей об обслуживании.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- РАСХОДЫ -->
+        <section id="expenses-page" class="page" style="display: none;">
+
+            <header class="dashboard-header">
+
+                <div>
+                    <h1>Расходы</h1>
+                    <p>Учёт затрат на содержание автомобилей</p>
+                </div>
+
+                <button id="add-expense-btn">
+                    + Добавить расход
+                </button>
+
+            </header>
+
+            <div class="dashboard-stats">
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Всего потрачено</span>
+                    <h2 id="expenses-total">0 ₽</h2>
+                    <p>За всё время</p>
+                </div>
+
+                <div class="dashboard-card">
+                    <span class="dashboard-card-label">Количество записей</span>
+                    <h2 id="expenses-count">0</h2>
+                    <p>Всего операций</p>
+                </div>
+
+            </div>
+
+            <div id="expense-form" class="dashboard-panel" style="display: none;">
+
+                <h2>Новый расход</h2>
+
+                <div class="expense-inputs">
+
+                    <label>
+                        Автомобиль
+                        <select id="expense-car"></select>
+                    </label>
+
+                    <label>
+                        Категория
+                        <select id="expense-category">
+                            <option value="Заправка">Заправка</option>
+                            <option value="Ремонт">Ремонт</option>
+                            <option value="Запчасти">Запчасти</option>
+                            <option value="Обслуживание">Обслуживание</option>
+                            <option value="Страховка">Страховка</option>
+                            <option value="Другое">Другое</option>
+                        </select>
+                    </label>
+
+                    <label>
+                        Сумма (₽)
+                        <input type="number" id="expense-amount" min="0" placeholder="Например, 5000">
+                    </label>
+
+                    <label>
+                        Дата
+                        <input type="date" id="expense-date">
+                    </label>
+
+                    <label>
+                        Описание
+                        <input type="text" id="expense-description" placeholder="Например, замена масла">
+                    </label>
+
+                </div>
+
+                <button id="save-expense-btn">
+                    Сохранить расход
+                </button>
+
+            </div>
+
+            <div class="dashboard-panel expense-history">
+
+                <h2>История расходов</h2>
+
+                <div id="expenses-list">
+                    <p>Пока расходов нет.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ОКНО НАСТРОЕК -->
+<div id="settings-overlay" class="settings-overlay">
+
+    <div class="settings-modal">
+
+        <div class="settings-header">
+
+            <div>
+                <h2>Настройки</h2>
+                <p>Персонализация My Garage</p>
+            </div>
+
+            <button id="close-settings" class="settings-close">&times;</button>
+
+        </div>
+
+        <div class="settings-content">
+
+            <h3>Внешний вид</h3>
+            <p>Выбери цветовое оформление приложения</p>
+
+            <div class="theme-options">
+
+                <button class="theme-option active" data-theme="dark">
+
+                    <div class="theme-preview dark-preview">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="theme-option-info">
+                        <strong>Графитовый</strong>
+                        <span>Тёмный фон и оранжевый акцент</span>
+                    </div>
+
+                    <span class="theme-check">✓</span>
+
+                </button>
+
+                <button class="theme-option" data-theme="light">
+
+                    <div class="theme-preview light-preview">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <div class="theme-option-info">
+                        <strong>Светлый</strong>
+                        <span>Светлый фон и голубой акцент</span>
+                    </div>
+
+                    <span class="theme-check"></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
